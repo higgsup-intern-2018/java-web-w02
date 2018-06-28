@@ -3,7 +3,7 @@ package com.higgsup.intern.w02.model;
 public class Student {
     private int id;
     private String name;
-    private int yearOfBirth;
+    private Number yearOfBirth;
     private String address;
 
     public int getId() {
@@ -22,11 +22,11 @@ public class Student {
         this.name = name;
     }
 
-    public int getYearOfBirth() {
+    public Number getYearOfBirth() {
         return yearOfBirth;
     }
 
-    public void setYearOfBirth(int yearOfBirth) {
+    public void setYearOfBirth(Number yearOfBirth) {
         this.yearOfBirth = yearOfBirth;
     }
 
