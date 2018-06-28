@@ -1,4 +1,4 @@
-package com.higgsup.intern.jdbc_demo.util;
+package com.higgsup.intern.w02.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
