@@ -4,7 +4,7 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-This repository is used for team members to commit their Java Core Exercises on Week 01.
+This repository is used for team members to commit their Java Web Exercises on Week 02.
 
 ### Contribution guidelines ###
 
