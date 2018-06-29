@@ -3,29 +3,35 @@ package com.higgsup.intern.w02.dao;
 import com.higgsup.intern.w02.model.Student;
 import com.higgsup.intern.w02.util.DBUtil;
 
+import java.io.Serializable;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class StudentDAO {
-    public static void displayAll() throws SQLException {
+public class StudentDAO implements Serializable {
+    public List<Student> displayAll() throws SQLException {
+
+        List<Student> students = new ArrayList<>();
         String sql = "SELECT id, name, year_of_birth, address FROM student";
         try (
                 Connection conn = DBUtil.getConnection();
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
         ) {
-            System.out.println("Admin Table:");
+            System.out.println("Display list of students");
             while (rs.next()) {
-                StringBuffer bf = new StringBuffer();
-                bf.append(rs.getInt("id") + ": ");
-                bf.append(rs.getString("name") + ", ");
-                bf.append(rs.getInt("year_of_birth" + ", "));
-                bf.append(rs.getString("address"));
-                System.out.println(bf.toString());
+                Student student = new Student();
+                student.setId(rs.getInt("id"));
+                student.setName(rs.getString("name"));
+                student.setYearOfBirth(rs.getInt("year_of_birth"));
+                student.setAddress(rs.getString("address"));
+                students.add(student);
             }
         }
+        return students;
     }
 
-    public static Student findById(int id) throws SQLException {
+    public Student findById(int id) throws SQLException {
         String sql = "SELECT * FROM student WHERE id = ?";
         ResultSet rs = null;
 
@@ -57,7 +63,7 @@ public class StudentDAO {
         }
     }
 
-    public static boolean insert(Student student) throws Exception {
+    public boolean insert(Student student) throws Exception {
 
         String sql = "INSERT INTO student (name, year_of_birth, address ) VALUES (?, ?, ?)";
         ResultSet keys = null;
@@ -90,7 +96,7 @@ public class StudentDAO {
         return true;
     }
 
-    public static boolean update(Student student) throws Exception {
+    public  boolean update(Student student) throws Exception {
 
         String sql =
                 "UPDATE student SET name = ?, year_of_birth = ?, address = ? WHERE id = ?";
@@ -118,7 +124,7 @@ public class StudentDAO {
 
     }
 
-    public static boolean deleteById(int id) throws Exception {
+    public boolean deleteById(int id) throws Exception {
 
         String sql = "DELETE FROM student WHERE id = ?";
         try (
