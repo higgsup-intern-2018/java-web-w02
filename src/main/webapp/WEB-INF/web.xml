@@ -15,9 +15,13 @@
         <url-pattern>/student</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>EnrollmentController</servlet-name>
+        <servlet-class>com.higgsup.intern.w02.controller.EnrollmentController</servlet-class>
+    </servlet>
 
-
-
-
-
+    <servlet-mapping>
+        <servlet-name>EnrollmentController</servlet-name>
+        <url-pattern>/enrollment</url-pattern>
+    </servlet-mapping>
 </web-app>
