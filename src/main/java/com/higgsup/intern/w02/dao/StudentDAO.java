@@ -96,7 +96,7 @@ public class StudentDAO implements Serializable {
         return true;
     }
 
-    public  boolean update(Student student) throws Exception {
+    public boolean update(Student student, int id) throws Exception {
 
         String sql =
                 "UPDATE student SET name = ?, year_of_birth = ?, address = ? WHERE id = ?";
@@ -108,7 +108,7 @@ public class StudentDAO implements Serializable {
             stmt.setString(1, student.getName());
             stmt.setInt(2, student.getYearOfBirth());
             stmt.setString(3, student.getAddress());
-
+            stmt.setInt(4, id);
 
             int affected = stmt.executeUpdate();
             if (affected == 1) {
