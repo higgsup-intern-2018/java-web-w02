@@ -62,4 +62,23 @@ public class StudentController extends HttpServlet {
             e.printStackTrace();
         }
     }
+
+    protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json; charset=utf-8");
+        PrintWriter out = response.getWriter();
+        int id = Integer.parseInt(request.getParameter("id"));
+
+        BufferedReader reader = request.getReader();
+        String json = reader.readLine();
+
+        Student student = objectMapper.readValue(json, Student.class);
+
+        try {
+            boolean success = dao.update(student, id);
+            out.println(objectMapper.writeValueAsString(success));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
