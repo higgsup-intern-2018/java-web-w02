@@ -1,11 +1,36 @@
 package com.higgsup.intern.w02.dao;
 
 import com.higgsup.intern.w02.model.Enrollment;
+import com.higgsup.intern.w02.model.Student;
 import com.higgsup.intern.w02.util.DBUtil;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EnrollmentDAO {
+
+    public List<Enrollment> displayAll() throws SQLException {
+
+        List<Enrollment> enrollments = new ArrayList<>();
+        String sql = "SELECT id, classroom_id, student_id FROM enrollment";
+        try (
+                Connection conn = DBUtil.getConnection();
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+        ) {
+            System.out.println("Display list of enrollments");
+            while (rs.next()) {
+                Enrollment enrollment = new Enrollment();
+
+                enrollment.setId(rs.getInt("id"));
+                enrollment.setClassroomId(rs.getInt("classroom_id"));
+                enrollment.setStudentId(rs.getInt("student_id"));
+                enrollments.add(enrollment);
+            }
+        }
+        return enrollments;
+    }
     public boolean insert(Enrollment enrollment) throws Exception {
 
         String sql = "INSERT INTO enrollment (student_id, classroom_id ) VALUES (?, ?)";
