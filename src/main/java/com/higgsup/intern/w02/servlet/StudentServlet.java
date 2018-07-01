@@ -26,7 +26,7 @@ public class StudentServlet extends HttpServlet {
         try {
             out.println(obm.writeValueAsString(mn.displayStudent()));
 
-        } catch (SQLException e) {
+            } catch (SQLException e) {
             e.printStackTrace();
         }
     }
