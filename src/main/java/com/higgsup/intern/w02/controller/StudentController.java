@@ -1,5 +1,6 @@
 package com.higgsup.intern.w02.controller;
 
+import com.google.gson.Gson;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.higgsup.intern.w02.dao.StudentDAO;
 import com.higgsup.intern.w02.model.Student;
@@ -8,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -15,7 +17,6 @@ import java.sql.SQLException;
 public class StudentController extends HttpServlet {
     private StudentDAO dao;
     ObjectMapper objectMapper = new ObjectMapper();
-
 
     public StudentController() {
         super();
@@ -31,7 +32,37 @@ public class StudentController extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        PrintWriter out = response.getWriter();
+        try {
+            boolean success = dao.deleteById(id);
+            out.println(objectMapper.writeValueAsString(success));
+            System.out.println("Delete successful!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json; charset=utf-8");
+        BufferedReader reader = request.getReader();
+        String json = reader.readLine();
+
+        Gson gson = new Gson();
+        Student student = gson.fromJson(json, Student.class);
+
+        try {
+            boolean code = dao.insert(student);
+            PrintWriter out = response.getWriter();
+
+            out.print(gson.toJson(code));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 }
