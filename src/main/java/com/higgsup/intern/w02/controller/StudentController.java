@@ -1,6 +1,5 @@
 package com.higgsup.intern.w02.controller;
 
-import com.google.gson.Gson;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.higgsup.intern.w02.dao.StudentDAO;
 import com.higgsup.intern.w02.model.Student;
@@ -49,20 +48,18 @@ public class StudentController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json; charset=utf-8");
+        PrintWriter out = response.getWriter();
+
         BufferedReader reader = request.getReader();
         String json = reader.readLine();
 
-        Gson gson = new Gson();
-        Student student = gson.fromJson(json, Student.class);
+        Student student = objectMapper.readValue(json, Student.class);
 
         try {
-            boolean code = dao.insert(student);
-            PrintWriter out = response.getWriter();
-
-            out.print(gson.toJson(code));
+            boolean success = dao.insert(student);
+            out.println(objectMapper.writeValueAsString(success));
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
