@@ -16,6 +16,10 @@ public class EnrollmentController extends HttpServlet {
     private EnrollmentDAO dao;
     ObjectMapper objectMapper = new ObjectMapper();
 
+    public EnrollmentController() {
+        super();
+        dao = new EnrollmentDAO();
+    }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
@@ -29,13 +33,28 @@ public class EnrollmentController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int studentId = Integer.parseInt(request.getParameter("studentId"));
         int classroomId = Integer.parseInt(request.getParameter("classroomId"));
+        PrintWriter out = response.getWriter();
 
         Enrollment enrollment = new Enrollment();
         enrollment.setStudentId(studentId);
         enrollment.setClassroomId(classroomId);
 
         try {
-            dao.insert(enrollment);
+            boolean success = dao.insert(enrollment);
+            out.println(objectMapper.writeValueAsString(success));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int classroomId = Integer.parseInt(request.getParameter("classroomId"));
+        int studentId = Integer.parseInt(request.getParameter("studentId"));
+        PrintWriter out = response.getWriter();
+        try {
+            boolean success = dao.deleteById(classroomId,studentId);
+            out.println(objectMapper.writeValueAsString(success));
+            System.out.println("Delete successful!");
         } catch (Exception e) {
             e.printStackTrace();
         }
