@@ -1,9 +1,9 @@
 package com.higgsup.intern.w02.model;
 
 public class Classroom {
-    private int id ;
+    private int id;
     private String nameClass;
-    private String describe;
+    private String description;
     private int instructorId;
 
     public void setId(int id) {
@@ -22,12 +22,12 @@ public class Classroom {
         return nameClass;
     }
 
-    public void setDescribe(String describe) {
-        this.describe = describe;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getDescribe() {
-        return describe;
+    public String getDescription() {
+        return description;
     }
 
     public int getinstructorId() {

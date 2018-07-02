@@ -35,4 +35,13 @@
         <servlet-name>StudentInfoServlet</servlet-name>
         <url-pattern>/student-info</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ClassroomInfoServlet</servlet-name>
+        <servlet-class>com.higgsup.intern.w02.servlet.ClassroomInfoServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ClassroomInfoServlet</servlet-name>
+        <url-pattern>/classroom</url-pattern>
+    </servlet-mapping>
 </web-app>

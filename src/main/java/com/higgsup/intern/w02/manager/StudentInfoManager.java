@@ -19,8 +19,8 @@ public class StudentInfoManager implements Serializable {
         String sql = "select student.* , classroom.*, enrollment.* " +
                 "from enrollment " +
                 "inner join student on enrollment.student_id = student.id " +
-                "inner join classroom on enrollment.classroom_id = classroom.id "+
-                "where student.id = "+id;
+                "inner join classroom on enrollment.classroom_id = classroom.id " +
+                "where student.id = " + id;
         try (
                 Connection conn = DBUntil.getConnection();
                 Statement stmt = conn.createStatement();
@@ -33,13 +33,13 @@ public class StudentInfoManager implements Serializable {
                 studentInfo.setYearOfBirth(rs.getInt("year_of_birth"));
                 studentInfo.setAddress(rs.getString("address"));
                 int classroomId = rs.getInt("enrollment.classroom_id");
-                String  classroomName = rs.getString("classroom.name_class");
-                String  classroomDescription = rs.getString("classroom.description");
-                int  instructorId = rs.getInt("classroom.instructor_id");
+                String classroomName = rs.getString("classroom.name_class");
+                String classroomDescription = rs.getString("classroom.description");
+                int instructorId = rs.getInt("classroom.instructor_id");
                 Classroom classroom = new Classroom();
                 classroom.setId(classroomId);
                 classroom.setNameClass(classroomName);
-                classroom.setDescribe(classroomDescription);
+                classroom.setDescription(classroomDescription);
                 classroom.setinstructorId(instructorId);
                 classroomList.add(classroom);
             }
