@@ -176,12 +176,4 @@ public class StudentDAO
         return classrooms;
     }
 
-    public static void main(String[] args) {
-        StudentDAO studentDAO = new StudentDAO();
-        Student s = new Student();
-        s.setName("Minh");
-        s.setBirthYear(1997);
-        s.setAddress("Hà Nội");
-        System.out.println(studentDAO.displayClassroom(1));
-    }
 }

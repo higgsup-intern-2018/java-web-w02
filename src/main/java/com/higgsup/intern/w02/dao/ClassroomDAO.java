@@ -78,10 +78,4 @@ public class ClassroomDAO
             return -1;
         }
     }
-
-    public static void main(String[] args) {
-        ClassroomDAO classroomDAO = new ClassroomDAO();
-        System.out.println(classroomDAO.getInstructorName(1));
-        System.out.println(classroomDAO.countStudent(1));
-    }
 }

@@ -55,12 +55,4 @@ public class EnrollmentDAO
             return false;
         }
     }
-
-    public static void main(String[] args) throws SQLException {
-        EnrollmentDAO enrollmentDAO = new EnrollmentDAO();
-        Enrollment enrollment = new Enrollment();
-        enrollment.setStudentId(8);
-        enrollment.setClassroomId(2);
-        enrollmentDAO.insertEnrollment(enrollment);
-    }
 }
