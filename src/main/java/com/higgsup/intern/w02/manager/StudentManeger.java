@@ -20,53 +20,27 @@ public class StudentManeger implements Serializable {
             while (rs.next()) {
                 Student st = new Student();
                 st.setId(rs.getInt("id"));
-                st.setName(rs.getString("name"));
-                st.setYearOfBirth(rs.getInt("yearOfBirth"));
+                st.setName(rs.getString("name_student"));
+                st.setYearOfBirth(rs.getInt("year_of_birth"));
                 st.setAddress(rs.getString("address"));
+                lstStudents.add(st);
             }
         }
         return lstStudents;
     }
     //PUT
-    public static Student findById(int stId) throws SQLException {
-        ResultSet rs = null;
-        try(
-                Connection cnn = DBUntil.getConnection();
-                PreparedStatement stmt = cnn.prepareStatement("SELECT*FROM student WHERE id=?;")
-        ) {
-            stmt.setInt(1,stId);
-            rs = stmt.executeQuery();
-            if (rs.next()){
-                Student student = new Student();
-                student.setId(stId);
-                student.setName(rs.getString("name"));
-                student.setYearOfBirth(rs.getInt("yearOfBirth"));
-                student.setAddress(rs.getString("address"));
-                return student;
-            }else {
-                return null;
-            }
-        }catch (SQLException ex){
-            System.err.println(ex);
-            return null;
-        }finally {
-            if (rs !=null){
-                rs.close();
-            }
-        }
-
-    }
-    public boolean update(Student student) throws Exception{
+    public boolean updateStudent(Student student ,int id) throws Exception{
         try (
                 Connection cnn = DBUntil.getConnection();
-                PreparedStatement stmt = cnn.prepareStatement("UPDATE student SET name_student=?,year_of_birth=?,adress=? WHERE id=?;");
+                PreparedStatement stmt = cnn.prepareStatement("UPDATE student SET name_student=?,year_of_birth=?,address = ? WHERE id=?;");
         )
         {
             stmt.setString(1,student.getName());
             stmt.setInt(2,student.getYearOfBirth());
             stmt.setString(3,student.getAddress());
+            stmt.setInt(4,id);
             int affected  = stmt.executeUpdate();
-            if (affected>0){
+            if (affected==1){
                 return true;
             }else {
                 return false;
@@ -77,7 +51,7 @@ public class StudentManeger implements Serializable {
         }
     }
     //POST
-    public boolean insert(Student student) throws Exception{
+    public boolean insertStudent(Student student) throws Exception{
         ResultSet rs = null;
         try (
                 Connection conn = DBUntil.getConnection();
@@ -88,7 +62,7 @@ public class StudentManeger implements Serializable {
             stmt.setInt(2,student.getYearOfBirth());
             stmt.setString(3,student.getAddress());
             int affected  = stmt.executeUpdate();
-            if (affected >0){
+            if (affected ==1){
                 rs = stmt.getGeneratedKeys();
                 rs.next();
                 int newRs = rs.getInt(1);
@@ -108,7 +82,7 @@ public class StudentManeger implements Serializable {
         return true;
     }
     //DELETE
-    public boolean delete(int id) throws Exception{
+    public boolean deleteStudent(int id) throws Exception{
         try (
                 Connection con = DBUntil.getConnection();
                 PreparedStatement stmt = con.prepareStatement("DELETE FROM student WHERE id =?; ");
@@ -116,7 +90,7 @@ public class StudentManeger implements Serializable {
             stmt.setInt(1,id);
             int affected  = stmt.executeUpdate();
 
-            if (affected > 0) {
+            if (affected ==1) {
                 return true;
             } else {
                 return false;
@@ -126,5 +100,6 @@ public class StudentManeger implements Serializable {
             return false;
         }
     }
+//GET - Student information
 }
 
