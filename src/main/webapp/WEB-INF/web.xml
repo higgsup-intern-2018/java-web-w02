@@ -24,4 +24,13 @@
         <servlet-name>EnrollmentServlet</servlet-name>
         <url-pattern>/enrollment</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>StudentInforServlet</servlet-name>
+        <servlet-class>com.higgsup.intern.w02.servlet.StudentInfoServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>StudentInforServlet</servlet-name>
+        <url-pattern>/student-infor</url-pattern>
+    </servlet-mapping>
 </web-app>
