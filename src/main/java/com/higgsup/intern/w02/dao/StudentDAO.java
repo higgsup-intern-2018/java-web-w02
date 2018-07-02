@@ -31,38 +31,6 @@ public class StudentDAO implements Serializable {
         return students;
     }
 
-    public Student findById(int id) throws SQLException {
-        String sql = "SELECT * FROM student WHERE id = ?";
-        ResultSet rs = null;
-
-        try (
-                Connection conn = DBUtil.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(sql);
-        ) {
-            stmt.setInt(1, id);
-            rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                Student student = new Student();
-                student.setId(id);
-                student.setName(rs.getString("name"));
-                student.setYearOfBirth(rs.getInt("year_of_birth"));
-                student.setAddress(rs.getString("address"));
-                return student;
-            } else {
-                return null;
-            }
-
-        } catch (SQLException e) {
-            System.err.println(e);
-            return null;
-        } finally {
-            if (rs != null) {
-                rs.close();
-            }
-        }
-    }
-
     public boolean insert(Student student) throws Exception {
 
         String sql = "INSERT INTO student (name, year_of_birth, address ) VALUES (?, ?, ?)";
