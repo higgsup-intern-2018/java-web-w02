@@ -47,7 +47,7 @@ public class StudentController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        response.setContentType("application/json; charset=utf-8");
+        response.setContentType("application/json");
         PrintWriter out = response.getWriter();
 
         BufferedReader reader = request.getReader();
