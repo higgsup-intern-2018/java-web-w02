@@ -31,6 +31,7 @@ public class EnrollmentDAO {
         }
         return enrollments;
     }
+
     public boolean insert(Enrollment enrollment) throws Exception {
 
         String sql = "INSERT INTO enrollment (student_id, classroom_id ) VALUES (?, ?)";
@@ -61,5 +62,28 @@ public class EnrollmentDAO {
             if (keys != null) keys.close();
         }
         return true;
+    }
+
+    public boolean deleteById(int classroomId, int studentId) throws Exception {
+
+        String sql = "DELETE FROM enrollment WHERE classroom_id = ? AND student_id = ? ";
+        try (
+                Connection conn = DBUtil.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql);
+        ) {
+            stmt.setInt(1, classroomId);
+            stmt.setInt(2, studentId);
+            int affected = stmt.executeUpdate();
+
+            if (affected == 1) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        }
     }
 }
