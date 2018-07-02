@@ -1,15 +1,15 @@
 package com.higgsup.intern.w02.model;
 
 public class ClassroomInfo extends Classroom {
-    private String name_instructor;
+    private String instructorName;
     private int count;
 
-    public String getName_instructor() {
-        return name_instructor;
+    public String getInstructorName() {
+        return instructorName;
     }
 
-    public void setName_instructor(String name_instructor) {
-        this.name_instructor = name_instructor;
+    public void setInstructorName(String instructorName) {
+        this.instructorName = instructorName;
     }
 
     public int getCount() {

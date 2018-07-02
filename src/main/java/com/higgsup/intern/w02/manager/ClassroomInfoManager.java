@@ -13,7 +13,7 @@ public class ClassroomInfoManager implements Serializable {
 
     public ClassroomInfo displayClassroomInfo(int id) throws SQLException {
         ClassroomInfo classroomInfo = new ClassroomInfo();
-        String sql = "select classroom.*,instructor.name_instructor, count(classroom.id)" +
+        String sql = "select classroom.*,instructor.*, count(classroom_id)" +
                 "from enrollment" +
                 "inner join student on enrollment.student_id = student.id" +
                 "inner join classroom on enrollment.classroom_id = classroom.id" +
@@ -28,7 +28,8 @@ public class ClassroomInfoManager implements Serializable {
                 classroomInfo.setId(rs.getInt("id"));
                 classroomInfo.setNameClass(rs.getString("name_class"));
                 classroomInfo.setDescription(rs.getString("description"));
-
+                classroomInfo.setInstructorName(rs.getString("instructor.name_instructor"));
+                classroomInfo.setCount(rs.getInt("enrollment.classroom_id"));
             }
             return classroomInfo;
         }
