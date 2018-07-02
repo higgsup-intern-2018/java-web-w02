@@ -4,7 +4,7 @@ public class Classroom {
     private int id ;
     private String nameClass;
     private String describe;
-    private int idLecturer;
+    private int instructorId;
 
     public void setId(int id) {
         this.id = id;
@@ -30,11 +30,11 @@ public class Classroom {
         return describe;
     }
 
-    public int getIdLecturer() {
-        return idLecturer;
+    public int getinstructorId() {
+        return instructorId;
     }
 
-    public void setIdLecturer(int idLecturer) {
-        this.idLecturer = idLecturer;
+    public void setinstructorId(int instructorId) {
+        this.instructorId = instructorId;
     }
 }

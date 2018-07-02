@@ -20,13 +20,14 @@ public class EnrollmentServlet extends HttpServlet {
         super();
         mnEroll = new EnrollmentManager();
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json; charset=utf-8");
         BufferedReader reader = request.getReader();
         String json = reader.readLine();
         PrintWriter out = response.getWriter();
-        Enrollment enrollment = obmEroll.readValue(json,Enrollment.class);
+        Enrollment enrollment = obmEroll.readValue(json, Enrollment.class);
         try {
             boolean code = mnEroll.insertEnrollment(enrollment);
             out.println(obmEroll.writeValueAsString(code));
@@ -35,6 +36,7 @@ public class EnrollmentServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         PrintWriter out = response.getWriter();

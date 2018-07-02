@@ -30,16 +30,17 @@ public class StudentServlet extends HttpServlet {
         String json = reader.readLine();
         PrintWriter out = response.getWriter();
 
-        Student student = obmStu.readValue(json,Student.class);
+        Student student = obmStu.readValue(json, Student.class);
 
         try {
             boolean code = mnStu.insertStudent(student);
-           out.println(obmStu.writeValueAsString(code));
+            out.println(obmStu.writeValueAsString(code));
             System.out.println("Insert successful!");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     protected void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("application/json; charset=utf-8");
         BufferedReader reader = request.getReader();
@@ -47,16 +48,17 @@ public class StudentServlet extends HttpServlet {
         String json = reader.readLine();
         PrintWriter out = response.getWriter();
 
-        Student student = obmStu.readValue(json,Student.class);
+        Student student = obmStu.readValue(json, Student.class);
 
         try {
-            boolean code = mnStu.updateStudent(student,id);
+            boolean code = mnStu.updateStudent(student, id);
             out.println(obmStu.writeValueAsString(code));
             System.out.println("Update successful!");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         PrintWriter out = response.getWriter();
@@ -68,6 +70,7 @@ public class StudentServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();

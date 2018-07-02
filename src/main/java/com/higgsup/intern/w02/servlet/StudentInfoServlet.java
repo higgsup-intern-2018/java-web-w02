@@ -1,6 +1,7 @@
 package com.higgsup.intern.w02.servlet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.higgsup.intern.w02.manager.StudentInfoManager;
 import com.higgsup.intern.w02.manager.StudentManeger;
 
 import javax.servlet.ServletException;
@@ -12,12 +13,12 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 
 public class StudentInfoServlet extends HttpServlet {
-    private StudentManeger mn;
+    private StudentInfoManager mn;
     ObjectMapper obm = new ObjectMapper();
 
     public StudentInfoServlet() {
         super();
-        mn = new StudentManeger();
+        mn = new StudentInfoManager();
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json");
