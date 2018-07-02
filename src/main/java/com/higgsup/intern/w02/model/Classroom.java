@@ -6,14 +6,9 @@ public class Classroom
     private String name;
     private String description;
     private int instructorId;
+    private String instructorName;
+    private int studentEnroll;
 
-    public Classroom(int id, String name, String description, int instructorId)
-    {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.instructorId = instructorId;
-    }
 
     public int getId() {
         return id;
@@ -39,11 +34,19 @@ public class Classroom
         this.description = description;
     }
 
-    public int getInstructorId() {
-        return instructorId;
+    public String getInstructorName(){return this.instructorName; }
+
+    public void setInstructorName(String instructorName)
+    {
+        this.instructorName = instructorName;
     }
 
-    public void setInstructorId(int instructorId) {
-        this.instructorId = instructorId;
+    public int getStudentEnroll(){return this.studentEnroll;}
+
+    public void setStudentEnroll(int studentCount){this.studentEnroll = studentCount;}
+
+    public String toString()
+    {
+        return name;
     }
 }

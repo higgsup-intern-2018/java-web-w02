@@ -1,18 +1,15 @@
 package com.higgsup.intern.w02.model;
 
+import java.util.List;
+
 public class Student
 {
     private int id;
     private String name;
     private int birthYear;
     private String address;
+    private List<Classroom> classroom;
 
-    public Student(int id, String name, int birthYear, String address) {
-        this.id = id;
-        this.name = name;
-        this.birthYear = birthYear;
-        this.address = address;
-    }
 
     public int getId() {
         return id;
@@ -44,5 +41,15 @@ public class Student
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public List<Classroom> getClassroomList()
+    {
+        return classroom;
+    }
+
+    public void setClassroomList(List<Classroom> classroom)
+    {
+        this.classroom = classroom;
     }
 }

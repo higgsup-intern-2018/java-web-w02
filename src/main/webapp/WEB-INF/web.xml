@@ -7,13 +7,36 @@
     <display-name>A Demo Servlet 3.1 Web Application</display-name>
 
     <servlet>
-        <servlet-name>HelloWorldServlet</servlet-name>
-        <servlet-class>com.higgsup.intern.w02.HelloServlet</servlet-class>
+       <servlet-name>ManageStudentServlet</servlet-name>
+        <servlet-class>com.higgsup.intern.w02.controller.ManageStudentServlet</servlet-class>
+    </servlet>
+    <servlet>
+       <servlet-name>ManageClassroomServlet</servlet-name>
+        <servlet-class>com.higgsup.intern.w02.controller.ManageClassroomServlet</servlet-class>
+    </servlet>
+    <servlet>
+       <servlet-name>ManageEnrollmentServlet</servlet-name>
+        <servlet-class>com.higgsup.intern.w02.controller.ManageEnrollmentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudentInfoServlet</servlet-name>
+        <servlet-class>com.higgsup.intern.w02.controller.StudentInfoServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>HelloWorldServlet</servlet-name>
-        <url-pattern>/say-hello</url-pattern>
+        <servlet-name>ManageStudentServlet</servlet-name>
+        <url-pattern>/student</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>ManageClassroomServlet</servlet-name>
+        <url-pattern>/classroom</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageEnrollmentServlet</servlet-name>
+        <url-pattern>/enrollment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentInfoServlet</servlet-name>
+        <url-pattern>/student-info</url-pattern>
+    </servlet-mapping>
 </web-app>

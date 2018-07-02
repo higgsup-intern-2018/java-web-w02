@@ -7,12 +7,6 @@ public class Instructor
     private int birthYear;
     private String address;
 
-    public Instructor(int id, String name, int birthYear, String address) {
-        this.id = id;
-        this.name = name;
-        this.birthYear = birthYear;
-        this.address = address;
-    }
 
     public int getId() {
         return id;
