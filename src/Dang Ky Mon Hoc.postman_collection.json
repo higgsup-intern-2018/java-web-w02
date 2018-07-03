@@ -1,0 +1,255 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Dang Ky Mon Hoc",
+		"_postman_id": "bada59f9-ea12-f2f4-8bbd-df7f1ec7a904",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tra ve danh sach sinh vien",
+			"request": {
+				"url": "http://localhost:8080/studentMngt/student",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Trả về danh sách tất cả các sinh viên "
+			},
+			"response": []
+		},
+		{
+			"name": "Dang ky lop hoc cho Sinh vien",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/studentMngt/enrollment?studentId=13&classroomId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"studentMngt",
+						"enrollment"
+					],
+					"query": [
+						{
+							"key": "studentId",
+							"value": "13",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "classroomId",
+							"value": "2",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Tạo sinh viên với các thông tin được truyền lên thông qua request body"
+			},
+			"response": []
+		},
+		{
+			"name": "Tra ve thong tin chi tiet sinh vien",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/studentMngt/student-info?id=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"studentMngt",
+						"student-info"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Trả về thông tin chi tiết của sinh viên có mã là param id được truyền lên theo request, các thông tin gồm: mã sinh viên, tên, năm sinh, địa chỉ, và danh sách các lớp học đã đăng ký. "
+			},
+			"response": []
+		},
+		{
+			"name": "Update sinh vien",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/studentMngt/student?id=13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"studentMngt",
+						"student"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "13",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Tu\", \"yearOfBirth\":\"2000\", \"address\":\"HN\"}"
+				},
+				"description": "Sửa thông tin sinh viên có mã là param id được truyền lên theo request"
+			},
+			"response": []
+		},
+		{
+			"name": "Tao sinh vien moi",
+			"request": {
+				"url": "http://localhost:8080/studentMngt/student",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Thuy\", \"yearOfBirth\":\"1998\", \"address\":\"HN\"}"
+				},
+				"description": "Tạo sinh viên với các thông tin được truyền lên thông qua request body. "
+			},
+			"response": []
+		},
+		{
+			"name": "Tra ve thong tin chi tiet lop hoc",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/studentMngt/classroom?id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"studentMngt",
+						"classroom"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Trả về thông tin chi tiết của lớp học có mã là param id được truyền lên theo request"
+			},
+			"response": []
+		},
+		{
+			"name": "Xoa sinh vien",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/studentMngt/student?id=13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"studentMngt",
+						"student"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "13",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Huy dang ky lop hoc",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/studentMngt/enrollment?classroomId=1&studentId=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"studentMngt",
+						"enrollment"
+					],
+					"query": [
+						{
+							"key": "classroomId",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "studentId",
+							"value": "5",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
