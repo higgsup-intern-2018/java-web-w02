@@ -4,7 +4,7 @@ public class Classroom {
     private int id;
     private String name;
     private String description;
-    private int constructorId;
+    private int instructorId;
 
     public int getId() {
         return id;
@@ -30,11 +30,11 @@ public class Classroom {
         this.description = description;
     }
 
-    public int getConstructorId() {
-        return constructorId;
+    public int getInstructorId() {
+        return instructorId;
     }
 
-    public void setConstructorId(int constructorId) {
-        this.constructorId = constructorId;
+    public void setInstructorId(int instructorId) {
+        this.instructorId = instructorId;
     }
 }
