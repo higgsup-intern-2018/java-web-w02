@@ -1,0 +1,252 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Dang Ky Mon Hoc",
+		"_postman_id": "8e415f82-db8e-9337-fae3-963ba2c083fb",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tra Ve Danh Sach Sinh Vien",
+			"request": {
+				"url": "http://localhost:8080/student/student",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Xoa Sinh Vien",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/student/student?id=16",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"student"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "16",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Them Sinh Vien",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/student/student?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"student"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Jame\",\"yearOfBirth\":\"2000\",\"address\":\"London\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Sua Thong Tin Sinh Vien",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/student/student?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"student"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Jame\",\"yearOfBirth\":\"2000\",\"address\":\"Ho Chi Minh\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Dang Ky Mon Hoc",
+			"request": {
+				"url": "http://localhost:8080/student/enrollment",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"studentId\" : 6,\"classroomId\":1}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Huy Dang Ky Mon Hoc",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/student/enrollment?id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"enrollment"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Tra Ve Thong Tin Sinh Vien Va Danh Sach Mon Hoc",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/student/student-info?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"student-info"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Tra Ve Thong Tin Lop Va So Luong Sinh Vien Dang Ky",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/student/classroom?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"classroom"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
