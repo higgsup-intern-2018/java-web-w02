@@ -2,6 +2,7 @@ package com.higgsup.intern.w02.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.higgsup.intern.w02.dao.StudentDAO;
+import com.higgsup.intern.w02.model.Response;
 import com.higgsup.intern.w02.model.Student;
 
 import javax.servlet.ServletException;
@@ -37,9 +38,10 @@ public class StudentController extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         PrintWriter out = response.getWriter();
         try {
-            boolean success = dao.deleteById(id);
-            out.println(objectMapper.writeValueAsString(success));
-            System.out.println("Delete successful!");
+            Response res = new Response();
+            res.setSuccess(dao.deleteById(id));
+            out.println(objectMapper.writeValueAsString(res));
+            System.out.println("Delete successfully!");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -56,8 +58,10 @@ public class StudentController extends HttpServlet {
         Student student = objectMapper.readValue(json, Student.class);
 
         try {
-            boolean success = dao.insert(student);
-            out.println(objectMapper.writeValueAsString(success));
+            Response res = new Response();
+            res.setSuccess(dao.insert(student));
+            out.println(objectMapper.writeValueAsString(res));
+            System.out.println("Insert successfully!!");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -75,8 +79,9 @@ public class StudentController extends HttpServlet {
         Student student = objectMapper.readValue(json, Student.class);
 
         try {
-            boolean success = dao.update(student, id);
-            out.println(objectMapper.writeValueAsString(success));
+            Response res = new Response();
+            res.setSuccess(dao.update(student, id));
+            out.println(objectMapper.writeValueAsString(res));
         } catch (Exception e) {
             e.printStackTrace();
         }
