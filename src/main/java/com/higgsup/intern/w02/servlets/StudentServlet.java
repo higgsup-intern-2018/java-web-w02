@@ -2,6 +2,7 @@ package com.higgsup.intern.w02.servlets;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.higgsup.intern.w02.entities.Student;
+import com.higgsup.intern.w02.manager.Respone;
 import com.higgsup.intern.w02.testcases.management_student.Delete;
 import com.higgsup.intern.w02.testcases.management_student.Insert;
 import com.higgsup.intern.w02.testcases.management_student.Read;
@@ -38,7 +39,6 @@ public class StudentServlet extends HttpServlet {
           }
     }
 
-
     public void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         StringBuffer sb = new StringBuffer();       // thay doi string
@@ -72,8 +72,10 @@ public class StudentServlet extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         Delete delete = new Delete();
         PrintWriter out = resp.getWriter();
+        Respone respone = new Respone();
         int id =Integer.parseInt( req.getParameter("id"));  //truyen param
-        String jsonInString = mapper.writeValueAsString(delete.deteleStudent(id));
+        respone.setSuccess(delete.deteleStudent(id));
+        String jsonInString = mapper.writeValueAsString(respone);
         out.println(jsonInString);
     }
 }

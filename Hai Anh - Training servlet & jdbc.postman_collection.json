@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "f2f09774-26b6-4fd7-8140-ff071ced6a46",
+		"name": "Hai Anh - Training servlet & jdbc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "(1) Post student by JSon",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\" My Test\",\n\"yearBirth\":1996,\n\"address\":\"Ha Noi\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/higgsup-intern-training/student",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"higgsup-intern-training",
+						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(2) Put student by JSon",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\" My Update Test\",\n\"yearBirth\":1994,\n\"address\":\"Ha Nam\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/higgsup-intern-training/student?id=3005",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"higgsup-intern-training",
+						"student"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3005"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(3) Delete student by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/higgsup-intern-training/student?id=3013",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"higgsup-intern-training",
+						"student"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3013"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(4) Get list student",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\" My Test\",\n\"yearBirth\":1996,\n\"address\":\"Ha Noi\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/higgsup-intern-training/student",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"higgsup-intern-training",
+						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(5) Register classroom for student",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\" My Test\",\n\"yearBirth\":1996,\n\"address\":\"Ha Noi\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/higgsup-intern-training/enrollment?classRoomId=1003&studentId=3007",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"higgsup-intern-training",
+						"enrollment"
+					],
+					"query": [
+						{
+							"key": "classRoomId",
+							"value": "1003"
+						},
+						{
+							"key": "studentId",
+							"value": "3007"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(6) Delete register classroom for student",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\" My Test\",\n\"yearBirth\":1996,\n\"address\":\"Ha Noi\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/higgsup-intern-training/enrollment?classRoomId=1003&studentId=3007",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"higgsup-intern-training",
+						"enrollment"
+					],
+					"query": [
+						{
+							"key": "classRoomId",
+							"value": "1003"
+						},
+						{
+							"key": "studentId",
+							"value": "3007"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(7) Get detail student",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\" My Test\",\n\"yearBirth\":1996,\n\"address\":\"Ha Noi\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/higgsup-intern-training/student-info?id=3001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"higgsup-intern-training",
+						"student-info"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(8) Get detail classroom",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\" My Test\",\n\"yearBirth\":1996,\n\"address\":\"Ha Noi\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/higgsup-intern-training/classroom?id=1004",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"higgsup-intern-training",
+						"classroom"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1004"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
