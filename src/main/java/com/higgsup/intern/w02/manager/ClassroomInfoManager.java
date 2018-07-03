@@ -13,25 +13,27 @@ public class ClassroomInfoManager implements Serializable {
 
     public ClassroomInfo displayClassroomInfo(int id) throws SQLException {
         ClassroomInfo classroomInfo = new ClassroomInfo();
-        String sql = "select classroom.*,instructor.*, count(classroom_id)" +
-                "from enrollment" +
-                "inner join student on enrollment.student_id = student.id" +
-                "inner join classroom on enrollment.classroom_id = classroom.id" +
-                "inner join instructor on classroom.instructor_id=instructor.id" +
+        String sql = "select classroom.*,instructor.*, count(classroom_id) as 'sum_Student' " +
+                "from enrollment " +
+                "inner join student on enrollment.student_id = student.id " +
+                "inner join classroom on enrollment.classroom_id = classroom.id " +
+                "inner join instructor on classroom.instructor_id=instructor.id " +
                 "where classroom.id = " + id;
-        try (
-                Connection conn = DBUntil.getConnection();
-                Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery(sql);
-        ) {
+        try {
+            Connection conn = DBUntil.getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 classroomInfo.setId(rs.getInt("id"));
                 classroomInfo.setNameClass(rs.getString("name_class"));
                 classroomInfo.setDescription(rs.getString("description"));
-                classroomInfo.setInstructorName(rs.getString("instructor.name_instructor"));
-                classroomInfo.setCount(rs.getInt("enrollment.classroom_id"));
+                classroomInfo.setinstructorId(rs.getInt("instructor_id"));
+                classroomInfo.setInstructorName(rs.getString("name_instructor"));
+                classroomInfo.setSum_Student(rs.getInt("sum_Student"));
             }
-            return classroomInfo;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return classroomInfo;
     }
 }
