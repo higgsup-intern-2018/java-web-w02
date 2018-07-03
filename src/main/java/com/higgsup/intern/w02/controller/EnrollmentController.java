@@ -3,6 +3,7 @@ package com.higgsup.intern.w02.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.higgsup.intern.w02.dao.EnrollmentDAO;
 import com.higgsup.intern.w02.model.Enrollment;
+import com.higgsup.intern.w02.model.Response;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -40,21 +41,23 @@ public class EnrollmentController extends HttpServlet {
         enrollment.setClassroomId(classroomId);
 
         try {
-            boolean success = dao.insert(enrollment);
-            out.println(objectMapper.writeValueAsString(success));
+            Response res = new Response();
+            res.setSuccess(dao.insert(enrollment));
+            out.println(objectMapper.writeValueAsString(res));
+            System.out.println("Insert successfully!");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int classroomId = Integer.parseInt(request.getParameter("classroomId"));
         int studentId = Integer.parseInt(request.getParameter("studentId"));
         PrintWriter out = response.getWriter();
         try {
-            boolean success = dao.deleteById(classroomId,studentId);
-            out.println(objectMapper.writeValueAsString(success));
-            System.out.println("Delete successful!");
+            Response res = new Response();
+            res.setSuccess(dao.deleteById(classroomId,studentId));
+            out.println(objectMapper.writeValueAsString(res));
+            System.out.println("Delete successfully!");
         } catch (Exception e) {
             e.printStackTrace();
         }
