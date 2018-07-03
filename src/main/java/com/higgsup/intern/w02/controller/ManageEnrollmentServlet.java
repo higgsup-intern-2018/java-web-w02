@@ -3,6 +3,7 @@ package com.higgsup.intern.w02.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.higgsup.intern.w02.dao.EnrollmentDAO;
 import com.higgsup.intern.w02.model.Enrollment;
+import com.higgsup.intern.w02.model.Response;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +16,7 @@ public class ManageEnrollmentServlet extends HttpServlet
 {
     ObjectMapper mapper = new ObjectMapper();
     EnrollmentDAO enrollmentDAO = new EnrollmentDAO();
+    Response res = new Response();
 
     //New enrollment
     @Override
@@ -26,7 +28,7 @@ public class ManageEnrollmentServlet extends HttpServlet
         Enrollment enrollment = new Enrollment();
         enrollment.setStudentId(studentId);
         enrollment.setClassroomId(classroomId);
-        enrollmentDAO.insertEnrollment(enrollment);
+        res.setSuccess(enrollmentDAO.insertEnrollment(enrollment));
         String jsonInString = mapper.writeValueAsString(enrollmentDAO);
         out.print(jsonInString);
     }
@@ -37,8 +39,8 @@ public class ManageEnrollmentServlet extends HttpServlet
         int cId = Integer.parseInt(req.getParameter("classRoomId"));;
         int sId = Integer.parseInt(req.getParameter("studentId"));
         PrintWriter out = resp.getWriter();
-        enrollmentDAO.deleteEnrollment(cId, sId);
-        String jsonInString = mapper.writeValueAsString(enrollmentDAO);
+        res.setSuccess(enrollmentDAO.deleteEnrollment(cId, sId));
+        String jsonInString = mapper.writeValueAsString(res);
         out.print(jsonInString);
     }
 }
