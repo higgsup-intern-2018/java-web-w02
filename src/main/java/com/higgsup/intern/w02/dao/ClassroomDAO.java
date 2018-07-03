@@ -10,6 +10,7 @@ import java.sql.SQLException;
 
 public class ClassroomDAO
 {
+    //Hiển thị lớp học theo id
     public Classroom displayClassroomById(int classroomId)
     {
         String sql = "SELECT id, name, description FROM classroom WHERE id = " + classroomId;
@@ -38,6 +39,7 @@ public class ClassroomDAO
         }
     }
 
+    //Lấy tên giảng viên
     public String getInstructorName(int classroomId)
     {
         String sql = "SELECT instructor.name FROM instructor INNER JOIN classroom ON instructor.id = classroom.instructor_id WHERE classroom.id = " + classroomId;
@@ -58,6 +60,7 @@ public class ClassroomDAO
         }
     }
 
+    //Số lượng sinh viên đăng ký
     public int countStudent(int classroomId)
     {
         String sql = "SELECT student_id FROM enrollment WHERE classroom_id = " + classroomId;

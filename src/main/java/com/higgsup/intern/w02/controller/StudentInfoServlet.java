@@ -14,6 +14,7 @@ public class StudentInfoServlet extends HttpServlet
     ObjectMapper mapper = new ObjectMapper();
     StudentDAO studentDAO = new StudentDAO();
 
+    //Get student information through id
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException
     {

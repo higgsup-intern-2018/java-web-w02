@@ -16,6 +16,7 @@ public class ManageEnrollmentServlet extends HttpServlet
     ObjectMapper mapper = new ObjectMapper();
     EnrollmentDAO enrollmentDAO = new EnrollmentDAO();
 
+    //New enrollment
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
@@ -25,16 +26,19 @@ public class ManageEnrollmentServlet extends HttpServlet
         Enrollment enrollment = new Enrollment();
         enrollment.setStudentId(studentId);
         enrollment.setClassroomId(classroomId);
-        String jsonInString = mapper.writeValueAsString(enrollmentDAO.insertEnrollment(enrollment));
+        enrollmentDAO.insertEnrollment(enrollment);
+        String jsonInString = mapper.writeValueAsString(enrollmentDAO);
         out.print(jsonInString);
     }
 
+    //Unenroll
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int cId = Integer.parseInt(req.getParameter("classRoomId"));;
         int sId = Integer.parseInt(req.getParameter("studentId"));
         PrintWriter out = resp.getWriter();
-        String jsonInString = mapper.writeValueAsString(enrollmentDAO.deleteEnrollment(cId, sId));
+        enrollmentDAO.deleteEnrollment(cId, sId);
+        String jsonInString = mapper.writeValueAsString(enrollmentDAO);
         out.print(jsonInString);
     }
 }

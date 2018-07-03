@@ -1,5 +1,6 @@
 package com.higgsup.intern.w02.controller;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.higgsup.intern.w02.dao.StudentDAO;
 import com.higgsup.intern.w02.model.Student;
@@ -15,8 +16,13 @@ import java.io.PrintWriter;
 
 public class ManageStudentServlet extends HttpServlet
 {
-    ObjectMapper mapper = new ObjectMapper();
+    ObjectMapper mapper;
     StudentDAO studentDAO = new StudentDAO();
+
+    {
+        mapper = new ObjectMapper();
+        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+    }
 
     //get all student
     @Override
@@ -42,7 +48,8 @@ public class ManageStudentServlet extends HttpServlet
                 jb.append(line);
             }
             Student s = mapper.readValue(String.valueOf(jb), Student.class);
-            String string = mapper.writeValueAsString(studentDAO.insertStudent(s));
+            studentDAO.insertStudent(s);
+            String string = mapper.writeValueAsString(studentDAO);
             out.print(string);
         } catch (Exception e)
         {
@@ -64,7 +71,8 @@ public class ManageStudentServlet extends HttpServlet
                 sb.append(line);
             }
             Student s = mapper.readValue(String.valueOf(sb), Student.class);
-            String string = mapper.writeValueAsString(studentDAO.updateStudent(studentId, s));
+            studentDAO.updateStudent(studentId, s);
+            String string = mapper.writeValueAsString(studentDAO);
             out.print(string);
         } catch (Exception e)
         {
@@ -78,7 +86,8 @@ public class ManageStudentServlet extends HttpServlet
         String studentId = request.getParameter("id");
         int id = Integer.parseInt(studentId);
         PrintWriter out = response.getWriter();
-        String jsonInString = mapper.writeValueAsString(studentDAO.deleteStudent(id));
+        studentDAO.deleteStudent(id);
+        String jsonInString = mapper.writeValueAsString(studentDAO);
         out.print(jsonInString);
     }
 }

@@ -10,6 +10,18 @@ import java.util.List;
 
 public class StudentDAO
 {
+    private boolean success;
+
+    public boolean getSuccess()
+    {
+        return success;
+    }
+
+    public void setSuccess(boolean success)
+    {
+        this.success = success;
+    }
+
     //Tạo sinh viên
     public boolean insertStudent(Student student){
         String sql = "INSERT INTO student(name, year_of_birth, address) VALUES (?, ?, ?)";
@@ -28,15 +40,17 @@ public class StudentDAO
                 student.setId(newKey);
             } else {
                 System.err.println("No rows affected");
-                return false;
+                setSuccess(false);
             }
         } catch (SQLException e) {
             System.err.println(e);
-            return false;
+            setSuccess(false);
         }
-        return true;
+        setSuccess(true);
+        return getSuccess();
     }
 
+    //Tìm sinh viên theo id
     public Student findById(int id)
     {
         String sql = "SELECT * FROM student WHERE id = " + id;
@@ -78,19 +92,20 @@ public class StudentDAO
                 ps.setInt(4, id);
                 int affected = ps.executeUpdate();
                 if (affected == 1) {
-                    return true;
+                    setSuccess(true);
                 } else {
-                    return false;
+                    setSuccess(false);
                 }
             }else
                 {
-                    return false;
+                    setSuccess(false);
                 }
         }
         catch (SQLException e) {
             System.err.println(e);
-            return false;
+            setSuccess(false);
         }
+        return getSuccess();
     }
 
     //Xóa sinh viên
@@ -104,16 +119,17 @@ public class StudentDAO
             int affected = ps.executeUpdate();
 
             if (affected == 1) {
-                return true;
+                setSuccess(true);
             } else {
-                return false;
+                setSuccess(false);
             }
         }
         catch(SQLException e)
         {
             System.err.println(e);
-            return false;
+            setSuccess(false);
         }
+        return getSuccess();
     }
 
     //Trả về tất cả danh sách sinh viên

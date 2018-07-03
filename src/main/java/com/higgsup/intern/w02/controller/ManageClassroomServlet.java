@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 
 public class ManageClassroomServlet extends HttpServlet
 {
+    //Get classroom information through id
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         ObjectMapper mapper = new ObjectMapper();
