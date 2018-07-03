@@ -34,4 +34,14 @@
         <servlet-name>StudentInfo</servlet-name>
         <url-pattern>/student-info</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ClassroomInfo</servlet-name>
+        <servlet-class>com.higgsup.intern.w02.controller.ClassroomInfoController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ClassroomInfo</servlet-name>
+        <url-pattern>/classroom</url-pattern>
+    </servlet-mapping>
 </web-app>
