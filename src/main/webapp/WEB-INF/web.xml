@@ -16,4 +16,46 @@
         <url-pattern>/say-hello</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>StudentServlet</servlet-name>
+        <servlet-class>com.higgsup.intern.w02.servlets.StudentServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>StudentServlet</servlet-name>
+        <url-pattern>/student</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EnrollmentServlet</servlet-name>
+        <servlet-class>com.higgsup.intern.w02.servlets.EnrollmentServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EnrollmentServlet</servlet-name>
+        <url-pattern>/enrollment</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>StudentInfoServlet</servlet-name>
+        <servlet-class>com.higgsup.intern.w02.servlets.StudentInfoServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>StudentInfoServlet</servlet-name>
+        <url-pattern>/student-info</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ClassroomServlet</servlet-name>
+        <servlet-class>com.higgsup.intern.w02.servlets.ClassroomServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ClassroomServlet</servlet-name>
+        <url-pattern>/classroom</url-pattern>
+    </servlet-mapping>
 </web-app>
