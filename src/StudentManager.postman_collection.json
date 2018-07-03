@@ -1,0 +1,30 @@
+{
+	"info": {
+		"_postman_id": "d3297e79-5697-4704-80c9-525ec4f56712",
+		"name": "StudentManager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tra ve danh sach sinh vien",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/training/student",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"training",
+						"student"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
