@@ -16,12 +16,12 @@ public class EnrollmentManager {
         ResultSet rs = null;
         try (
                 Connection con = DBUntil.getConnection();
-                PreparedStatement stmt = con.prepareStatement("INSERT INTO enrollment vales (?,?,?);");
+                PreparedStatement stmt = con.prepareStatement("INSERT INTO enrollment(student_id,classroom_id) vales (?,?);");
         ) {
-            stmt.setInt(1, enrollment.getId());
-            stmt.setInt(2, enrollment.getId());
+            stmt.setInt(1, enrollment.getStudentId());
+            stmt.setInt(2, enrollment.getClassroomId());
             int affected = stmt.executeUpdate();
-            if (affected > 0) {
+            if (affected ==1) {
                 rs = stmt.getGeneratedKeys();
                 rs.next();
                 int newKeys = rs.getInt(0);
@@ -48,7 +48,7 @@ public class EnrollmentManager {
             stmt.setInt(1, id);
             int affected = stmt.executeUpdate();
 
-            if (affected > 0) {
+            if (affected ==1) {
                 return true;
             } else {
                 return false;

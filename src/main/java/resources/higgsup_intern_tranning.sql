@@ -57,4 +57,18 @@ UPDATE student SET name_student=?,year_of_birth=?,adress=? WHERE id=?;
 INSERT INTO student (name_student,year_of_birth,address) VALUES (?,?,?);
 DELETE FROM student WHERE id =?; 
 INSERT INTO enrollment vales (?,?,?);
-DELETE FROM enrollment WHERE id =?; 
+DELETE FROM enrollment WHERE id =?;
+
+select student.*,enrollment.*,classroom.*
+from enrollment
+  inner join student on enrollment.student_id = student.id
+  inner join classroom on enrollment.classroom_id = classroom.id
+where student.id = 5;
+
+select classroom.*,instructor.name_instructor, count(classroom_id) as 'sum_Student'
+from enrollment
+  inner join student on enrollment.student_id = student.id
+  inner join classroom on enrollment.classroom_id = classroom.id
+  inner join instructor on classroom.instructor_id=instructor.id
+where classroom.id = 1
+;
