@@ -1,194 +1,14 @@
 {
 	"variables": [],
 	"info": {
-		"name": "higgsup-intern-training",
-		"_postman_id": "7e704169-0ffe-832a-eec2-d7e9d3996f85",
-		"description": "web exercise",
+		"name": "Bài tập Web",
+		"_postman_id": "1a11a682-b223-5f87-c887-c94cc9804853",
+		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "http://localhost:8080/higgsup-training/student\n",
-			"request": {
-				"url": "http://localhost:8080/higgsup-training/student\n",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"name\": \"Kien\", \r\n\t\"birthYear\": 1997, \r\n\t\"address\": \"Ha Noi\"\r\n}\r\n"
-				},
-				"description": "Create student with request body in JSON form"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8080/higgsup-training/student?id=11\n",
-			"request": {
-				"url": {
-					"raw": "http://localhost:8080/higgsup-training/student?id=11",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"higgsup-training",
-						"student"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "11\n",
-							"equals": true,
-							"description": ""
-						}
-					],
-					"variable": []
-				},
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"name\": \"Cuc\", \r\n\t\"birthYear\": 1997, \r\n\t\"address\": \"Vinh Phuc\"\r\n}\r\n"
-				},
-				"description": "Update student information with request body in JSON string(success:true)"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8080/higgsup-training/student?id=30\n",
-			"request": {
-				"url": {
-					"raw": "http://localhost:8080/higgsup-training/student?id=30",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"higgsup-training",
-						"student"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "30\n",
-							"equals": true,
-							"description": ""
-						}
-					],
-					"variable": []
-				},
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"name\": \"Cuc\", \r\n\t\"birthYear\": 1997, \r\n\t\"address\": \"Vinh Phuc\"\r\n}\r\n"
-				},
-				"description": "Update student information with request body in JSON string(success:false)"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8080/higgsup-training/student?id=29\n",
-			"request": {
-				"url": {
-					"raw": "http://localhost:8080/higgsup-training/student?id=29",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"higgsup-training",
-						"student"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "29\n",
-							"equals": true,
-							"description": ""
-						}
-					],
-					"variable": []
-				},
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"name\": \"Cuc\", \r\n\t\"birthYear\": 1997, \r\n\t\"address\": \"Vinh Phuc\"\r\n}\r\n"
-				},
-				"description": "Delete student(success:true)"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8080/higgsup-training/student?id=30\n",
-			"request": {
-				"url": {
-					"raw": "http://localhost:8080/higgsup-training/student?id=30",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"higgsup-training",
-						"student"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "30\n",
-							"equals": true,
-							"description": ""
-						}
-					],
-					"variable": []
-				},
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"name\": \"Cuc\", \r\n\t\"birthYear\": 1997, \r\n\t\"address\": \"Vinh Phuc\"\r\n}\r\n"
-				},
-				"description": "Delete student(success:false)"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8080/higgsup-training/student\n",
+			"name": "Lấy danh sách sinh viên",
 			"request": {
 				"url": "http://localhost:8080/higgsup-training/student\n",
 				"method": "GET",
@@ -203,15 +23,115 @@
 					"mode": "raw",
 					"raw": "{\r\n\t\"name\": \"Cuc\", \r\n\t\"birthYear\": 1997, \r\n\t\"address\": \"Vinh Phuc\"\r\n}\r\n"
 				},
-				"description": "Get list of all students"
+				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/higgsup-training/enrollment?classRoomId=5&studentId=4\n",
+			"name": "Thêm mới sinh viên",
+			"request": {
+				"url": "http://localhost:8080/higgsup-training/student\n",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"Cuc\", \r\n\t\"birthYear\": 1997, \r\n\t\"address\": \"Vinh Phuc\"\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Sửa sinh viên theo param id",
 			"request": {
 				"url": {
-					"raw": "http://localhost:8080/higgsup-training/enrollment?classRoomId=5&studentId=4",
+					"raw": "http://localhost:8080/higgsup-training/student?id=8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"higgsup-training",
+						"student"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "8\n",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"Cuc\", \r\n\t\"birthYear\": 1997, \r\n\t\"address\": \"Vinh Phuc\"\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Xóa sinh viên theo param id",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/higgsup-training/student?id=31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"higgsup-training",
+						"student"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "31\n",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"Cuc\", \r\n\t\"birthYear\": 1997, \r\n\t\"address\": \"Vinh Phuc\"\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Đăng ký lớp học",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/higgsup-training/enrollment?classRoomId=1&studentId=2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -224,13 +144,13 @@
 					"query": [
 						{
 							"key": "classRoomId",
-							"value": "5",
+							"value": "1",
 							"equals": true,
 							"description": ""
 						},
 						{
 							"key": "studentId",
-							"value": "4\n",
+							"value": "2\n",
 							"equals": true,
 							"description": ""
 						}
@@ -249,15 +169,15 @@
 					"mode": "raw",
 					"raw": "{\r\n\t\"name\": \"Cuc\", \r\n\t\"birthYear\": 1997, \r\n\t\"address\": \"Vinh Phuc\"\r\n}\r\n"
 				},
-				"description": "Student enrollment(success:true)"
+				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/higgsup-training/enrollment?classRoomId=6&studentId=8\n",
+			"name": "Hủy đăng ký môn học",
 			"request": {
 				"url": {
-					"raw": "http://localhost:8080/higgsup-training/enrollment?classRoomId=6&studentId=8",
+					"raw": "http://localhost:8080/higgsup-training/enrollment?classRoomId=1&studentId=2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -270,13 +190,13 @@
 					"query": [
 						{
 							"key": "classRoomId",
-							"value": "6",
+							"value": "1",
 							"equals": true,
 							"description": ""
 						},
 						{
 							"key": "studentId",
-							"value": "8\n",
+							"value": "2\n",
 							"equals": true,
 							"description": ""
 						}
@@ -295,58 +215,12 @@
 					"mode": "raw",
 					"raw": "{\r\n\t\"name\": \"Cuc\", \r\n\t\"birthYear\": 1997, \r\n\t\"address\": \"Vinh Phuc\"\r\n}\r\n"
 				},
-				"description": "Unenroll(success:true)"
+				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/higgsup-training/enrollment?classRoomId=4&studentId=12\n",
-			"request": {
-				"url": {
-					"raw": "http://localhost:8080/higgsup-training/enrollment?classRoomId=4&studentId=12",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"higgsup-training",
-						"enrollment"
-					],
-					"query": [
-						{
-							"key": "classRoomId",
-							"value": "4",
-							"equals": true,
-							"description": ""
-						},
-						{
-							"key": "studentId",
-							"value": "12\n",
-							"equals": true,
-							"description": ""
-						}
-					],
-					"variable": []
-				},
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"name\": \"Cuc\", \r\n\t\"birthYear\": 1997, \r\n\t\"address\": \"Vinh Phuc\"\r\n}\r\n"
-				},
-				"description": "Unenroll(success:false)"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8080/higgsup-training/student-info?id=1\n",
+			"name": "Hiển thị thông tin một sinh viên",
 			"request": {
 				"url": {
 					"raw": "http://localhost:8080/higgsup-training/student-info?id=1",
@@ -381,12 +255,12 @@
 					"mode": "raw",
 					"raw": "{\r\n\t\"name\": \"Cuc\", \r\n\t\"birthYear\": 1997, \r\n\t\"address\": \"Vinh Phuc\"\r\n}\r\n"
 				},
-				"description": "Get a student information, response in JSON string"
+				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/higgsup-training/classroom?id=7\n",
+			"name": "Hiển thị thông tin một lớp học",
 			"request": {
 				"url": {
 					"raw": "http://localhost:8080/higgsup-training/classroom?id=7",
@@ -402,7 +276,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "7\n",
+							"value": "7",
 							"equals": true,
 							"description": ""
 						}
@@ -421,7 +295,7 @@
 					"mode": "raw",
 					"raw": "{\r\n\t\"name\": \"Cuc\", \r\n\t\"birthYear\": 1997, \r\n\t\"address\": \"Vinh Phuc\"\r\n}\r\n"
 				},
-				"description": "Get classroom information, response in JSON string"
+				"description": ""
 			},
 			"response": []
 		}

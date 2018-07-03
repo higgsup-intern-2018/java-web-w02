@@ -29,7 +29,7 @@ public class ManageEnrollmentServlet extends HttpServlet
         enrollment.setStudentId(studentId);
         enrollment.setClassroomId(classroomId);
         res.setSuccess(enrollmentDAO.insertEnrollment(enrollment));
-        String jsonInString = mapper.writeValueAsString(enrollmentDAO);
+        String jsonInString = mapper.writeValueAsString(res);
         out.print(jsonInString);
     }
 
