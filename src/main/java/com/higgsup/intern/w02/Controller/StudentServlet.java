@@ -64,7 +64,7 @@ public class StudentServlet extends HttpServlet  {
                 sb.append(line);
             }
             Student student = mapper.readValue(String.valueOf(sb), Student.class);
-            String string = mapper.writeValueAsString(ManagerStudent.update(student));
+            String string = mapper.writeValueAsString(ManagerStudent.update(studentId,student));
             out.print(string);
         }catch (Exception e){
             e.printStackTrace();
@@ -82,8 +82,6 @@ public class StudentServlet extends HttpServlet  {
             Response res = new Response();
             res.setSuccess(ms.deleteById(id));
             out.print(mapper.writeValueAsString(res));
-            String jsonInString = mapper.writeValueAsString(ms.deleteById(id));
-            out.print(jsonInString);
         } catch (Exception e) {
             e.printStackTrace();
         }

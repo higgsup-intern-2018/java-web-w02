@@ -64,16 +64,15 @@ public class ManagerStudent{
     }
 
     // hàm sửa thông tin sinh viên
-    public static boolean update(Student student ) throws Exception{
-        String sql = "UPDATE student SET name = ? , year_of_birth = ?, address=? WHERE id = ?";
+    public static boolean update(int id, Student student ) throws Exception{
+        String sql = "UPDATE student SET name = ? , year_of_birth = ?, address=? WHERE id = "+id;
         try(
                 Connection conn = StudentConnection.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql);
                 ){
-            stmt.setInt(1, student.getId());
-            stmt.setString(2, student.getName());
-            stmt.setInt(3, student.getYear_of_birth());
-            stmt.setString(4,student.getAddress());
+            stmt.setString(1, student.getName());
+            stmt.setInt(2, student.getYear_of_birth());
+            stmt.setString(3,student.getAddress());
 
             int affected = stmt.executeUpdate();
             if (affected == 1){
