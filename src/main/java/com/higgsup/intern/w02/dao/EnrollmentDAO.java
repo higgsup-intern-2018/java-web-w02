@@ -2,23 +2,12 @@ package com.higgsup.intern.w02.dao;
 
 import com.higgsup.intern.w02.connection.DBConnection;
 import com.higgsup.intern.w02.model.Enrollment;
+import com.higgsup.intern.w02.model.Response;
 
 import java.sql.*;
 
 public class EnrollmentDAO
 {
-    private boolean success;
-
-    public boolean getSuccess()
-    {
-        return success;
-    }
-
-    public void setSuccess(boolean success)
-    {
-        this.success = success;
-    }
-
     //Đăng ký lớp học
     public boolean insertEnrollment(Enrollment enrollment){
         String sql = "INSERT INTO enrollment(student_id, classroom_id) VALUES(?,?)";
@@ -36,14 +25,13 @@ public class EnrollmentDAO
                 enrollment.setId(newKey);
             } else {
                 System.err.println("No rows affected");
-                setSuccess(false);
+                return false;
             }
         } catch (SQLException e) {
             System.err.println(e);
-            setSuccess(false);
+            return false;
         }
-        setSuccess(true);
-        return getSuccess();
+        return true;
     }
 
     //Hủy đăng ký lớp học
@@ -59,16 +47,15 @@ public class EnrollmentDAO
             int affected = ps.executeUpdate();
 
             if (affected == 1) {
-                setSuccess(true);
+                return true;
             } else {
-                setSuccess(false);
+                return false;
             }
         }
         catch(SQLException e)
         {
             System.err.println(e);
-            setSuccess(false);
+            return false;
         }
-        return getSuccess();
     }
 }

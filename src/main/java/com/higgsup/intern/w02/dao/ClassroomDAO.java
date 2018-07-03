@@ -60,7 +60,7 @@ public class ClassroomDAO
         }
     }
 
-    //Số lượng sinh viên đăng ký
+    //Số lượng sinh viên
     public int countStudent(int classroomId)
     {
         String sql = "SELECT student_id FROM enrollment WHERE classroom_id = " + classroomId;
@@ -70,6 +70,7 @@ public class ClassroomDAO
             Connection connection = DBConnection.getConnection();
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery(sql);
+
             while(rs.next())
             {
                 count += 1;

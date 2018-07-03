@@ -2,6 +2,7 @@ package com.higgsup.intern.w02.dao;
 
 import com.higgsup.intern.w02.connection.DBConnection;
 import com.higgsup.intern.w02.model.Classroom;
+import com.higgsup.intern.w02.model.Response;
 import com.higgsup.intern.w02.model.Student;
 
 import java.sql.*;
@@ -10,16 +11,9 @@ import java.util.List;
 
 public class StudentDAO
 {
-    private boolean success;
-
-    public boolean getSuccess()
+    private Response res;
     {
-        return success;
-    }
-
-    public void setSuccess(boolean success)
-    {
-        this.success = success;
+        res = new Response();
     }
 
     //Tạo sinh viên
@@ -40,14 +34,14 @@ public class StudentDAO
                 student.setId(newKey);
             } else {
                 System.err.println("No rows affected");
-                setSuccess(false);
+                return false;
             }
         } catch (SQLException e) {
             System.err.println(e);
-            setSuccess(false);
+            return false;
         }
-        setSuccess(true);
-        return getSuccess();
+        res.setSuccess(true);
+        return true;
     }
 
     //Tìm sinh viên theo id
@@ -92,20 +86,19 @@ public class StudentDAO
                 ps.setInt(4, id);
                 int affected = ps.executeUpdate();
                 if (affected == 1) {
-                    setSuccess(true);
+                    return true;
                 } else {
-                    setSuccess(false);
+                    return false;
                 }
             }else
                 {
-                    setSuccess(false);
+                    return false;
                 }
         }
         catch (SQLException e) {
             System.err.println(e);
-            setSuccess(false);
+            return false;
         }
-        return getSuccess();
     }
 
     //Xóa sinh viên
@@ -119,17 +112,16 @@ public class StudentDAO
             int affected = ps.executeUpdate();
 
             if (affected == 1) {
-                setSuccess(true);
+                return true;
             } else {
-                setSuccess(false);
+                return false;
             }
         }
         catch(SQLException e)
         {
             System.err.println(e);
-            setSuccess(false);
+            return false;
         }
-        return getSuccess();
     }
 
     //Trả về tất cả danh sách sinh viên
