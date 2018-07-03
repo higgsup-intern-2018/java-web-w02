@@ -1,13 +1,15 @@
 package com.higgsup.intern.w02.model;
 
-public class StudentInfo extends Student {
-    private String className;
+import java.util.List;
 
-    public String getClassName() {
-        return className;
+public class StudentInfo extends Student {
+    private List<Classroom> classroomList;
+
+    public List<Classroom> getClassroomList() {
+        return classroomList;
     }
 
-    public void setClassName(String className) {
-        this.className = className;
+    public void setClassroomList(List<Classroom> classroomList) {
+        this.classroomList = classroomList;
     }
 }
