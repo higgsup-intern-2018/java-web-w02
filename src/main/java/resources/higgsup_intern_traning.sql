@@ -56,7 +56,7 @@ SELECT*FROM student WHERE id=?;
 UPDATE student SET name_student=?,year_of_birth=?,adress=? WHERE id=?;
 INSERT INTO student (name_student,year_of_birth,address) VALUES (?,?,?);
 DELETE FROM student WHERE id =?; 
-INSERT INTO enrollment vales (?,?,?);
+INSERT INTO enrollment values (?,?);
 DELETE FROM enrollment WHERE id =?;
 
 select student.*,enrollment.*,classroom.*
