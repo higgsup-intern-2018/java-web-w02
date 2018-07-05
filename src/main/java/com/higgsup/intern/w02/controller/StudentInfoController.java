@@ -16,7 +16,6 @@ public class StudentInfoController extends HttpServlet {
     private StudentInfoDAO dao;
 
     public StudentInfoController() {
-        super();
         dao = new StudentInfoDAO();
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
