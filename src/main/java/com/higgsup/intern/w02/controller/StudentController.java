@@ -19,7 +19,6 @@ public class StudentController extends HttpServlet {
     ObjectMapper objectMapper = new ObjectMapper();
 
     public StudentController() {
-        super();
         dao = new StudentDAO();
     }
 
