@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS higgsup_intern_tranning;
+CREATE DATABASE IF NOT EXISTS higgsup_intern_traning;
 
-use higgsup_intern_tranning;
+use higgsup_intern_traning;
 
 create table classroom (
 id bigint primary key NOT NULL,-- Khóa chính , không tự động tăng khi id , và không được để trống
@@ -52,12 +52,12 @@ insert into enrollment values
 (5,1,1);
 
 SELECT*FROM student;
-SELECT*FROM student WHERE id=?;
-UPDATE student SET name_student=?,year_of_birth=?,adress=? WHERE id=?;
-INSERT INTO student (name_student,year_of_birth,address) VALUES (?,?,?);
-DELETE FROM student WHERE id =?; 
-INSERT INTO enrollment values (?,?);
-DELETE FROM enrollment WHERE id =?;
+SELECT*FROM student WHERE id=1;
+UPDATE student SET name_student=?,year_of_birth=?,adress=? WHERE id=2;
+INSERT INTO student (name_student,year_of_birth,address) VALUES ("An","1998","Thanh Hoa");
+DELETE FROM student WHERE id =9;
+INSERT INTO enrollment values ("2","2");
+DELETE FROM enrollment WHERE id =1;
 
 select student.*,enrollment.*,classroom.*
 from enrollment

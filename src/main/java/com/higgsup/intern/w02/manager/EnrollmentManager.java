@@ -1,9 +1,7 @@
 package com.higgsup.intern.w02.manager;
 
-import com.higgsup.intern.w02.model.Classroom;
 import com.higgsup.intern.w02.model.Enrollment;
-import com.higgsup.intern.w02.model.Student;
-import com.higgsup.intern.w02.until.DBUntil;
+import com.higgsup.intern.w02.util.DBUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +13,7 @@ public class EnrollmentManager {
     public boolean insertEnrollment(Enrollment enrollment) throws Exception {
         ResultSet rs = null;
         try (
-                Connection con = DBUntil.getConnection();
+                Connection con = DBUtil.getConnection();
                 PreparedStatement stmt = con.prepareStatement("INSERT INTO enrollment(student_id,classroom_id) vales (?,?);");
         ) {
             stmt.setInt(1, enrollment.getStudentId());
@@ -24,10 +22,10 @@ public class EnrollmentManager {
             if (affected ==1) {
                 rs = stmt.getGeneratedKeys();
                 rs.next();
-                int newKeys = rs.getInt(0);
+                int newKeys = rs.getInt(1);
                 enrollment.setId(newKeys);
             } else {
-                System.err.println("Erro");
+                System.err.println("Error");
                 return false;
             }
         } catch (SQLException ex) {
@@ -42,7 +40,7 @@ public class EnrollmentManager {
     //DELETE
     public boolean deleteEnrollment(int id) throws Exception {
         try (
-                Connection con = DBUntil.getConnection();
+                Connection con = DBUtil.getConnection();
                 PreparedStatement stmt = con.prepareStatement("DELETE FROM enrollment WHERE id =?; ");
         ) {
             stmt.setInt(1, id);

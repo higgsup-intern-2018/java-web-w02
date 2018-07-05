@@ -1,7 +1,7 @@
 package com.higgsup.intern.w02.manager;
 
 import com.higgsup.intern.w02.model.ClassroomInfo;
-import com.higgsup.intern.w02.until.DBUntil;
+import com.higgsup.intern.w02.util.DBUtil;
 
 import java.io.Serializable;
 import java.sql.Connection;
@@ -20,7 +20,7 @@ public class ClassroomInfoManager implements Serializable {
                 "inner join instructor on classroom.instructor_id=instructor.id " +
                 "where classroom.id = " + id;
         try {
-            Connection conn = DBUntil.getConnection();
+            Connection conn = DBUtil.getConnection();
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
@@ -29,7 +29,7 @@ public class ClassroomInfoManager implements Serializable {
                 classroomInfo.setDescription(rs.getString("description"));
                 classroomInfo.setinstructorId(rs.getInt("instructor_id"));
                 classroomInfo.setInstructorName(rs.getString("name_instructor"));
-                classroomInfo.setSum_Student(rs.getInt("sum_Student"));
+                classroomInfo.setSumStudent(rs.getInt("sum_Student"));
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -2,7 +2,7 @@ package com.higgsup.intern.w02.manager;
 
 
 import com.higgsup.intern.w02.model.Student;
-import com.higgsup.intern.w02.until.DBUntil;
+import com.higgsup.intern.w02.util.DBUtil;
 
 import java.io.Serializable;
 import java.sql.*;
@@ -14,7 +14,7 @@ public class StudentManeger implements Serializable {
     public List<Student> displayStudent() throws SQLException {
         List<Student> lstStudents = new ArrayList<Student>();
         try (
-                Connection conn = DBUntil.getConnection();
+                Connection conn = DBUtil.getConnection();
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT *FROM student;");
         ) {
@@ -33,7 +33,7 @@ public class StudentManeger implements Serializable {
     //PUT
     public boolean updateStudent(Student student, int id) throws Exception {
         try (
-                Connection cnn = DBUntil.getConnection();
+                Connection cnn = DBUtil.getConnection();
                 PreparedStatement stmt = cnn.prepareStatement("UPDATE student SET name_student=?,year_of_birth=?,address = ? WHERE id=?;");
         ) {
             stmt.setString(1, student.getName());
@@ -56,7 +56,7 @@ public class StudentManeger implements Serializable {
     public boolean insertStudent(Student student) throws Exception {
         ResultSet key = null;
         try (
-                Connection conn = DBUntil.getConnection();
+                Connection conn = DBUtil.getConnection();
                 PreparedStatement stmt = conn.prepareStatement("INSERT INTO student (name_student,year_of_birth,address) VALUES (?,?,?);");
         ) {
             stmt.setString(1, student.getName());
@@ -69,7 +69,7 @@ public class StudentManeger implements Serializable {
                 int newKey = key.getInt(1);
                 student.setId(newKey);
             } else {
-                System.err.println("Erro");
+                System.err.println("Error.");
                 return false;
             }
         } catch (SQLException e) {
@@ -83,7 +83,7 @@ public class StudentManeger implements Serializable {
     //DELETE
     public boolean deleteStudent(int id) throws Exception {
         try (
-                Connection con = DBUntil.getConnection();
+                Connection con = DBUtil.getConnection();
                 PreparedStatement stmt = con.prepareStatement("DELETE FROM student WHERE id =?; ");
         ) {
             stmt.setInt(1, id);

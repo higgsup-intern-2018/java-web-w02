@@ -2,7 +2,7 @@ package com.higgsup.intern.w02.manager;
 
 import com.higgsup.intern.w02.model.Classroom;
 import com.higgsup.intern.w02.model.StudentInfo;
-import com.higgsup.intern.w02.until.DBUntil;
+import com.higgsup.intern.w02.util.DBUtil;
 
 import java.io.Serializable;
 import java.sql.Connection;
@@ -17,12 +17,12 @@ public class StudentInfoManager implements Serializable {
     public StudentInfo displayStudentInfo(int id) throws SQLException {
         StudentInfo studentInfo = new StudentInfo();
         String sql = "select student.* , classroom.*, enrollment.* " +
-                "from enrollment " +
-                "inner join student on enrollment.student_id = student.id " +
-                "inner join classroom on enrollment.classroom_id = classroom.id " +
+                "from student  " +
+                "left join enrollment on enrollment.student_id = student.id " +// chuyển inner thành left
+                "left join classroom on enrollment.classroom_id = classroom.id " +
                 "where student.id = " + id;
         try (
-                Connection conn = DBUntil.getConnection();
+                Connection conn = DBUtil.getConnection();
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
         ) {

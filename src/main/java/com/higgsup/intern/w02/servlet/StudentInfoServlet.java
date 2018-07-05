@@ -14,10 +14,9 @@ import java.sql.SQLException;
 
 public class StudentInfoServlet extends HttpServlet {
     private StudentInfoManager mn;
-    ObjectMapper obm = new ObjectMapper();
+  private  ObjectMapper obm = new ObjectMapper();
 
     public StudentInfoServlet() {
-        super();
         mn = new StudentInfoManager();
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

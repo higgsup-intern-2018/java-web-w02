@@ -14,7 +14,7 @@ import java.sql.SQLException;
 
 public class ClassroomInfoServlet extends HttpServlet {
     private ClassroomInfoManager mn;
-    ObjectMapper obm = new ObjectMapper();
+   private ObjectMapper obm = new ObjectMapper();
 
     public ClassroomInfoServlet() {
         super();

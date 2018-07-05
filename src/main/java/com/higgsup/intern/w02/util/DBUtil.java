@@ -1,10 +1,10 @@
-package com.higgsup.intern.w02.until;
+package com.higgsup.intern.w02.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBUntil {
+public class DBUtil {
     public static final String USERNAME = "thuyngo";
     public static final String PASS = "1234$";
     public static final String CONNECTION_URL = "jdbc:mysql://localhost:3306/higgsup_intern_tranning";

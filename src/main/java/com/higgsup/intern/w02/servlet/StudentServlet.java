@@ -15,10 +15,10 @@ import java.sql.SQLException;
 
 public class StudentServlet extends HttpServlet {
     private StudentManeger mnStu;
-    ObjectMapper obmStu = new ObjectMapper();
+   private ObjectMapper obmStu = new ObjectMapper();
 
     public StudentServlet() {
-        super();
+
         mnStu = new StudentManeger();
     }
 

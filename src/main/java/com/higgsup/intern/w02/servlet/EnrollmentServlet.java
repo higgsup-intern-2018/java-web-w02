@@ -14,10 +14,9 @@ import java.io.PrintWriter;
 
 public class EnrollmentServlet extends HttpServlet {
     private EnrollmentManager mnEroll;
-    ObjectMapper obmEroll = new ObjectMapper();
+  private  ObjectMapper obmEroll = new ObjectMapper();
 
     public EnrollmentServlet() {
-        super();
         mnEroll = new EnrollmentManager();
     }
 

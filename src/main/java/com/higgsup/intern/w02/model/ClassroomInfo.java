@@ -2,7 +2,7 @@ package com.higgsup.intern.w02.model;
 
 public class ClassroomInfo extends Classroom {
     private String instructorName;
-    private int sum_Student;
+    private int sumStudent;
 
     public String getInstructorName() {
         return instructorName;
@@ -12,11 +12,11 @@ public class ClassroomInfo extends Classroom {
         this.instructorName = instructorName;
     }
 
-    public void setSum_Student(int sum_Student) {
-        this.sum_Student = sum_Student;
+    public void setSumStudent(int sumStudent) {
+        this.sumStudent = sumStudent;
     }
 
-    public int getSum_Student() {
-        return sum_Student;
+    public int getSumStudent() {
+        return sumStudent;
     }
 }

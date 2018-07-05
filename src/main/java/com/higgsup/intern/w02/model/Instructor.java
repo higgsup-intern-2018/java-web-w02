@@ -2,7 +2,7 @@ package com.higgsup.intern.w02.model;
 
 public class Instructor {
     private int id;
-    private String name_instructor;
+    private String nameInstructor;
     private int yearOfBirth;
     private String classroomId;
 
@@ -14,12 +14,12 @@ public class Instructor {
         this.id = id;
     }
 
-    public String getName_instructor() {
-        return name_instructor;
+    public String getNameInstructor() {
+        return nameInstructor;
     }
 
-    public void setName_instructor(String name_instructor) {
-        this.name_instructor = name_instructor;
+    public void setNameInstructor(String nameInstructor) {
+        this.nameInstructor = nameInstructor;
     }
 
     public int getYearOfBirth() {
