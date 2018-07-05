@@ -15,14 +15,14 @@ import java.util.List;
 public class StudentInfoDAO implements Serializable {
     public StudentInfo displayStudentInfo(int id) throws SQLException {
         StudentInfo studentInfo = new StudentInfo();
-        String sql = "SELECT student.*, enrollment.*, classroom.* FROM (enrollment " +
-                "INNER JOIN student ON student.id = enrollment.student_id)" +
-                "INNER JOIN classroom ON enrollment.classroom_id = classroom.id " +
-                "WHERE student.id =" + id;
+        String sql = "SELECT student.*, enrollment.*, classroom.* FROM  student " +
+                "LEFT JOIN enrollment ON student.id = enrollment.student_id " +
+                "LEFT JOIN classroom ON enrollment.classroom_id = classroom.id " +
+                "WHERE student.id = " + id;
         try (
                 Connection conn = DBUtil.getConnection();
                 Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery(sql);
+                ResultSet rs = stmt.executeQuery(sql)
         ) {
             System.out.println("Display information of the student");
 
