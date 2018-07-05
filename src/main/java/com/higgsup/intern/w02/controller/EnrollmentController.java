@@ -18,7 +18,6 @@ public class EnrollmentController extends HttpServlet {
     ObjectMapper objectMapper = new ObjectMapper();
 
     public EnrollmentController() {
-        super();
         dao = new EnrollmentDAO();
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
