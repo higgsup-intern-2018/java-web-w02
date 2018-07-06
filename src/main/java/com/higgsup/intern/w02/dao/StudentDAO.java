@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDAO implements Serializable {
-    public List<Student> displayAll() throws SQLException {
+    public List<Student> getStudentList() throws SQLException {
 
         List<Student> students = new ArrayList<>();
         String sql = "SELECT id, name, year_of_birth, address FROM student";
