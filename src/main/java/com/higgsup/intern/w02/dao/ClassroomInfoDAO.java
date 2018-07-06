@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ClassroomInfoDAO implements Serializable {
-    public ClassroomInfo displayClassroomInfo(int id) throws SQLException {
+    public ClassroomInfo getClassroomInfo(int id) throws SQLException {
         ClassroomInfo classroomInfo = new ClassroomInfo();
         String sql = "SELECT classroom.*, enrollment.*, instructor.*, count(classroom_id) FROM (classroom " +
                 "INNER JOIN enrollment ON classroom.id = enrollment.classroom_id)" +
