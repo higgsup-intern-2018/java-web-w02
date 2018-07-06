@@ -23,7 +23,7 @@ public class StudentInfoController extends HttpServlet {
         PrintWriter out = response.getWriter();
         int id = Integer.parseInt(request.getParameter("id"));
         try {
-            out.println(objectMapper.writeValueAsString(dao.displayStudentInfo(id)));
+            out.println(objectMapper.writeValueAsString(dao.getStudentInfo(id)));
 
         } catch (SQLException e) {
             e.printStackTrace();
