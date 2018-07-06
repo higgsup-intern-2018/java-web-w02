@@ -26,7 +26,7 @@ public class StudentController extends HttpServlet {
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
         try {
-            out.println(objectMapper.writeValueAsString(dao.displayAll()));
+            out.println(objectMapper.writeValueAsString(dao.getStudentList()));
 
         } catch (SQLException e) {
             e.printStackTrace();
