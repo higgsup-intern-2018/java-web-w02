@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentInfoDAO implements Serializable {
-    public StudentInfo displayStudentInfo(int id) throws SQLException {
+    public StudentInfo getStudentInfo(int id) throws SQLException {
         StudentInfo studentInfo = new StudentInfo();
         String sql = "SELECT student.*, enrollment.*, classroom.* FROM  student " +
                 "LEFT JOIN enrollment ON student.id = enrollment.student_id " +
