@@ -22,7 +22,7 @@ public class ClassroomInfoController extends HttpServlet {
         PrintWriter out = response.getWriter();
         int id = Integer.parseInt(request.getParameter("id"));
         try {
-            out.println(objectMapper.writeValueAsString(dao.displayClassroomInfo(id)));
+            out.println(objectMapper.writeValueAsString(dao.getClassroomInfo(id)));
 
         } catch (SQLException e) {
             e.printStackTrace();
