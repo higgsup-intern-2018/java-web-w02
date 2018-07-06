@@ -10,7 +10,7 @@ import java.util.List;
 
 public class EnrollmentDAO {
 
-    public List<Enrollment> displayAll() throws SQLException {
+    public List<Enrollment> getEnrollmentList() throws SQLException {
 
         List<Enrollment> enrollments = new ArrayList<>();
         String sql = "SELECT id, classroom_id, student_id FROM enrollment";
